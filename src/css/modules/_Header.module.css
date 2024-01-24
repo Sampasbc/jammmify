@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 20.4rem;
+  padding: 3rem;
+  background: #262728;
+  border-radius: 3rem;
+}
+
+.title {
+  color: #fff;
+  font-family: "Alfa Slab One";
+  font-size: 4.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.09rem;
+  text-transform: capitalize;
+}
+
+.title span {
+  color: #1ed760;
+}
