@@ -2,38 +2,52 @@
   "musics": [
     {
       "name": "Holocene",
-      "artist": "BonIver",
-      "album": "BonIver",
+      "artist": "Bon Iver",
+      "album": "Bon Iver",
       "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
       "duration": 300
     },
     {
-      "name": "Holocene",
-      "artist": "BonIver",
-      "album": "BonIver",
-      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
-      "duration": 300
+      "name": "Skinny Love",
+      "artist": "Bon Iver",
+      "album": "For Emma, Forever Ago",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/e/e0/Bon_iver_album_cover.jpg",
+      "duration": 220
     },
     {
-      "name": "Holocene",
-      "artist": "BonIver",
-      "album": "BonIver",
-      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
-      "duration": 300
+      "name": "Ophelia",
+      "artist": "The Lumineers",
+      "album": "Cleopatra",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/4/4f/Cleopatra_album_cover.jpg",
+      "duration": 168
     },
     {
-      "name": "Holocene",
-      "artist": "BonIver",
-      "album": "BonIver",
-      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
-      "duration": 300
+      "name": "Stubborn Love",
+      "artist": "The Lumineers",
+      "album": "The Lumineers",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/thumb/b/b8/TheLumineersalbum.jpg/220px-TheLumineersalbum.jpg",
+      "duration": 235
     },
     {
-      "name": "Holocene",
-      "artist": "BonIver",
-      "album": "BonIver",
-      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
-      "duration": 300
+      "name": "Lost in My Mind",
+      "artist": "The Head and the Heart",
+      "album": "The Head and the Heart",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/c/ce/Thehandonheart-LPcover.jpg",
+      "duration": 265
+    },
+    {
+      "name": "Rivers and Roads",
+      "artist": "The Head and the Heart",
+      "album": "The Head and the Heart",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/c/ce/Thehandonheart-LPcover.jpg",
+      "duration": 274
+    },
+    {
+      "name": "White Winter Hymnal",
+      "artist": "Fleet Foxes",
+      "album": "Fleet Foxes",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/0/01/Fleet_foxes.jpg",
+      "duration": 158
     }
   ]
 }
