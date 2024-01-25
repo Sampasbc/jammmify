@@ -10,7 +10,7 @@
   background: #262728;
 }
 
-ul {
+.list {
   display: flex;
   flex-direction: column;
   width: 100%;

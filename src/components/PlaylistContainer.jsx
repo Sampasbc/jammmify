@@ -6,7 +6,7 @@ const PlaylistContainer = ({ playlists }) => {
   return (
     <div className={styles.playlistContainer}>
       <h3 className={styles.title}>Playlists</h3>
-      <ul>
+      <ul className={styles.list}>
         {playlists.map((list) => (
           <PlaylistItem
             key={list.id}

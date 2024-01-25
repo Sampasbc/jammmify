@@ -10,7 +10,7 @@ const TracklistContainer = ({ musics }) => {
         <h4 className={styles.thTitle}>Title</h4>
         <h4 className={styles.thAlbum}>Album</h4>
       </div>
-      <ul>
+      <ul className={styles.list}>
         {musics.map((item) => (
           <TracklistItem
             key={item.id}
