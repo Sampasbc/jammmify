@@ -3,6 +3,12 @@
   flex-direction: row;
   align-items: center;
   gap: 2rem;
+  transition: all 150ms ease;
+}
+
+.playlistWrapper:hover {
+  cursor: pointer;
+  opacity: 0.9;
 }
 
 .imgContainer {
