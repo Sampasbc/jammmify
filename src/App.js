@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import SearchBar from "./components/SearchBar";
 import Header from "./components/Header";
 import PlaylistContainer from "./components/PlaylistContainer";
+import TracklistContainer from "./components/TracklistContainer";
 
 function App() {
   const [playlists, setPlaylists] = useState([]);
@@ -33,7 +34,10 @@ function App() {
       <Header>
         <SearchBar />
       </Header>
-      <PlaylistContainer playlists={playlists} />
+      <div>
+        <PlaylistContainer playlists={playlists} />
+        <TracklistContainer />
+      </div>
     </div>
   );
 }

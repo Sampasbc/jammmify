@@ -9,6 +9,7 @@ const PlaylistContainer = ({ playlists }) => {
       <ul>
         {playlists.map((list) => (
           <PlaylistItem
+            key={list.id}
             src={list.imgSrc}
             playlistName={list.name}
             playlistAuthor={list.author}
