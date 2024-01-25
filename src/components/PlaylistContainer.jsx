@@ -1,10 +1,11 @@
 import React from "react";
 import PlaylistItem from "./PlaylistItem";
+import styles from "../css//modules/_PlaylistContainer.module.css";
 
 const PlaylistContainer = ({ playlists }) => {
   return (
-    <div className="playlistContainer">
-      <h3>Playlists</h3>
+    <div className={styles.playlistContainer}>
+      <h3 className={styles.title}>Playlists</h3>
       <ul>
         {playlists.map((list) => (
           <PlaylistItem
