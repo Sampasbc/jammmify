@@ -3,14 +3,17 @@ import PlaylistItem from "./PlaylistItem";
 
 const PlaylistContainer = ({ playlists }) => {
   return (
-    <div className="playlist_container">
-      {playlists.map((list) => (
-        <PlaylistItem
-          src={list.imgSrc}
-          playlistName={list.name}
-          playlistAuthor={list.author}
-        />
-      ))}
+    <div className="playlistContainer">
+      <h3>Playlists</h3>
+      <ul>
+        {playlists.map((list) => (
+          <PlaylistItem
+            src={list.imgSrc}
+            playlistName={list.name}
+            playlistAuthor={list.author}
+          />
+        ))}
+      </ul>
     </div>
   );
 };

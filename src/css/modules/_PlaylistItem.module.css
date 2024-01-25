@@ -1,0 +1,58 @@
+.playlistWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+.imgContainer {
+  display: flex;
+  width: 5rem;
+  height: 5rem;
+}
+
+.playlistImg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.playlistTitle {
+  align-self: stretch;
+  overflow: hidden;
+  color: #fafafa;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Helvetica;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-transform: capitalize;
+}
+
+.playlistAuthor {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  align-self: stretch;
+  overflow: hidden;
+  color: #fafafa;
+  text-overflow: ellipsis;
+  font-family: Helvetica;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-transform: capitalize;
+  opacity: 0.8;
+}
