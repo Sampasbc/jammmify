@@ -34,7 +34,7 @@ function App() {
       <Header>
         <SearchBar />
       </Header>
-      <div>
+      <div className="contentWrapper">
         <PlaylistContainer playlists={playlists} />
         <TracklistContainer />
       </div>

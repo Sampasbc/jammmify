@@ -65,3 +65,24 @@ body {
     transform: rotate(360deg);
   }
 }
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  gap: 2rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #101010;
+  border-radius: 5rem;
+}
+::-webkit-scrollbar-thumb {
+  background: hsla(0, 0%, 98%, 0.5);
+  border-radius: 5rem;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
