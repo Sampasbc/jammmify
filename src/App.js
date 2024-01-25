@@ -6,8 +6,8 @@ import PlaylistContainer from "./components/PlaylistContainer";
 import TracklistContainer from "./components/TracklistContainer";
 
 function App() {
+  // Fecth Playlists
   const [playlists, setPlaylists] = useState([]);
-
   useEffect(() => {
     const fetchPlaylists = async () => {
       try {
@@ -25,9 +25,32 @@ function App() {
     fetchPlaylists();
   }, []);
 
+  // Fetch Music tracks
+  const [musicTracks, setMusicTracks] = useState([]);
+  useEffect(() => {
+    const fetchMusicTracks = async () => {
+      try {
+        const response = await fetch("./musics.json");
+        if (response.ok) {
+          const data = await response.json();
+          setMusicTracks(data["musics"]);
+        } else {
+          throw new Error("Request Failed!");
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchMusicTracks();
+  }, []);
+
   useEffect(() => {
     console.log(playlists);
   }, [playlists]);
+
+  useEffect(() => {
+    console.log(musicTracks);
+  }, [musicTracks]);
 
   return (
     <div className="App">
@@ -36,7 +59,7 @@ function App() {
       </Header>
       <div className="contentWrapper">
         <PlaylistContainer playlists={playlists} />
-        <TracklistContainer />
+        <TracklistContainer musics={musicTracks} />
       </div>
     </div>
   );

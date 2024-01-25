@@ -1,0 +1,39 @@
+{
+  "musics": [
+    {
+      "name": "Holocene",
+      "artist": "BonIver",
+      "album": "BonIver",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
+      "duration": 300
+    },
+    {
+      "name": "Holocene",
+      "artist": "BonIver",
+      "album": "BonIver",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
+      "duration": 300
+    },
+    {
+      "name": "Holocene",
+      "artist": "BonIver",
+      "album": "BonIver",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
+      "duration": 300
+    },
+    {
+      "name": "Holocene",
+      "artist": "BonIver",
+      "album": "BonIver",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
+      "duration": 300
+    },
+    {
+      "name": "Holocene",
+      "artist": "BonIver",
+      "album": "BonIver",
+      "album_cover": "https://upload.wikimedia.org/wikipedia/en/5/5f/Bon_iver.jpg",
+      "duration": 300
+    }
+  ]
+}

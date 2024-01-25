@@ -1,0 +1,17 @@
+li {
+  display: flex;
+  flex-direction: row;
+}
+
+.imgContainer {
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
