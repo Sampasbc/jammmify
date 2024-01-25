@@ -5,7 +5,7 @@ const Header = ({ children }) => {
   return (
     <div className={Styles.header}>
       <h1 className={Styles.title}>
-        ja<span>mmm</span>ing
+        ja<span>mmm</span>ify
       </h1>
       {children}
     </div>
