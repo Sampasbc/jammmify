@@ -1,11 +1,10 @@
 import React from "react";
 import PlaylistItem from "./PlaylistItem";
-import { PLAYLISTS } from "../App";
 
-const PlaylistContainer = () => {
+const PlaylistContainer = ({ playlists }) => {
   return (
     <div className="playlist_container">
-      {PLAYLISTS.map((list) => (
+      {playlists.map((list) => (
         <PlaylistItem
           src={list.imgSrc}
           playlistName={list.name}
