@@ -24,7 +24,7 @@ body {
 .App {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   width: 100%;
   max-width: 114.4rem;
   text-align: center;
@@ -69,7 +69,7 @@ body {
 .contentWrapper {
   display: grid;
   grid-template-columns: 2fr 5fr;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 ::-webkit-scrollbar-track {

@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  gap: 2.2rem;
+  gap: 1.2rem;
 }
 
 .searchBar {
@@ -17,7 +17,7 @@
   color: #fafafa;
   background-color: hsla(0, 0%, 98%, 0.5);
   border: none;
-  border-radius: 1.5rem;
+  border-radius: 5rem;
 }
 
 .searchBar:focus {
@@ -39,7 +39,7 @@
   padding: 1.5rem 3rem;
   color: #fafafa;
   background: #1ed760;
-  border-radius: 1.5rem;
+  border-radius: 5rem;
   border: none;
   transition: all 150ms ease;
 }
