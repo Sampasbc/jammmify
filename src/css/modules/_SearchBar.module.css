@@ -18,11 +18,20 @@
   background-color: hsla(0, 0%, 98%, 0.5);
   border: none;
   border-radius: 5rem;
+  transition: all 150ms ease;
 }
 
 .searchBar:focus {
   border: none;
   background-color: hsla(0, 0%, 20%, 0.5);
+}
+
+.searchBar:active,
+.searchBar:focus,
+textarea:active,
+textarea:focus {
+  border: 1px solid #1ed760;
+  outline: none;
 }
 
 .searchBar::placeholder {
