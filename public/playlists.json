@@ -168,6 +168,19 @@
           "duration": 2000
         }
       ]
+    },
+    {
+      "name": "Playlist 3",
+      "author": "Nando",
+      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
+      "songs": [
+        {
+          "name": "Music",
+          "artist": "John Smith",
+          "album": "Music album",
+          "duration": 2000
+        }
+      ]
     }
   ]
 }
