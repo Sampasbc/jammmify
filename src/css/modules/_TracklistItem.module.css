@@ -1,6 +1,6 @@
 .tracklistItem {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  grid-template-columns: 3fr 2fr 0.5fr;
   align-items: center;
   padding: 0.8rem;
   box-sizing: border-box;
@@ -10,7 +10,6 @@
 
 .tracklistItem:hover {
   cursor: pointer;
-  opacity: 0.8;
   background: hsla(0, 0%, 98%, 0.1);
 }
 

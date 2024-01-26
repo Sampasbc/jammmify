@@ -16,7 +16,7 @@ const SearchBar = () => {
         onChange={handleSearch}
         placeholder="Search by name, author or album..."
       />
-      <input className={styles.searchBtn} type="button" value="find song" />
+      <input className="btn" type="button" value="find song" />
     </div>
   );
 };

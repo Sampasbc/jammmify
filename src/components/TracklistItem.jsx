@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "../css/modules/_TracklistItem.module.css";
+import { FaPlusCircle } from "react-icons/fa";
 
 const TracklistItem = ({ src, name, artist, album }) => {
   return (
@@ -14,6 +15,10 @@ const TracklistItem = ({ src, name, artist, album }) => {
         </div>
       </div>
       <h5 className={styles.songAlbum}>{album}</h5>
+      <button className="btn_secondary" onClick={handleClick}>
+        <FaPlusCircle />
+        add
+      </button>
     </li>
   );
 };
