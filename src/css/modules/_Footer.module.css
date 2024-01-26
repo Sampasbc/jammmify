@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  justify-self: flex-end;
+  /* position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.text {
+  color: #fafafa;
+  font-size: 1.5rem;
+  opacity: 0.8;
+}

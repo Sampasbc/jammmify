@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Header from "./components/Header";
 import PlaylistContainer from "./components/PlaylistContainer";
 import TracklistContainer from "./components/TracklistContainer";
+import Footer from "./components/Footer";
 
 function App() {
   // Fecth Playlists
@@ -54,13 +55,16 @@ function App() {
 
   return (
     <div className="App">
-      <Header>
-        <SearchBar />
-      </Header>
-      <div className="contentWrapper">
-        <PlaylistContainer playlists={playlists} />
-        <TracklistContainer musics={musicTracks} />
+      <div className="main">
+        <Header>
+          <SearchBar />
+        </Header>
+        <div className="contentWrapper">
+          <PlaylistContainer playlists={playlists} />
+          <TracklistContainer musics={musicTracks} />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
