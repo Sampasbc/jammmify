@@ -3,6 +3,8 @@ import styles from "../css/modules/_TracklistItem.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 
 const TracklistItem = ({ src, name, artist, album }) => {
+  const handleClick = () => {};
+
   return (
     <li className={styles.tracklistItem}>
       <div className={styles.infoContainer}>
