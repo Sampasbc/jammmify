@@ -1,0 +1,62 @@
+.loginBtn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  background: hsla(0, 0%, 98%, 0.2);
+  border-radius: 5rem;
+  border: none;
+
+  color: #fafafa;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Helvetica;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-transform: capitalize;
+  text-align: left;
+  transition: all 150ms ease;
+}
+
+.loginBtn:hover {
+  cursor: pointer;
+  background: hsla(0, 0%, 98%, 0.1);
+}
+
+.loginUser {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  background: hsla(0, 0%, 98%, 0.2);
+  border-radius: 5rem;
+  border: none;
+
+  color: #fafafa;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Helvetica;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-transform: capitalize;
+  text-align: left;
+  transition: all 150ms ease;
+}
+.loginUser:hover {
+  cursor: pointer;
+  background: hsla(0, 0%, 98%, 0.1);
+}
+
+.textLogin {
+  padding-right: 1rem;
+}
+
+.textUser {
+  padding-left: 1rem;
+}
