@@ -1,14 +1,21 @@
 .tracklistItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tracklistItemContainer {
   display: grid;
   grid-template-columns: 3fr 2fr 0.5fr;
   align-items: center;
+  min-height: 8rem;
   padding: 0.8rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
   transition: all 200ms ease;
 }
 
-.tracklistItem:hover {
+.tracklistItemContainer:hover {
   cursor: pointer;
   background: hsla(0, 0%, 98%, 0.1);
 }
