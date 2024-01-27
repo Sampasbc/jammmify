@@ -18,6 +18,7 @@ const TracklistContainer = ({ musics }) => {
             name={item.name}
             artist={item.artist}
             album={item.album}
+            duration={item.duration}
           />
         ))}
       </ul>

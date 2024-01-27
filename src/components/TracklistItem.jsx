@@ -3,7 +3,7 @@ import styles from "../css/modules/_TracklistItem.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 import TrackDetails from "./TrackDetails";
 
-const TracklistItem = ({ src, name, artist, album }) => {
+const TracklistItem = ({ src, name, artist, album, duration }) => {
   const [isActive, setIsActive] = useState(false);
   const handleActive = (active) => {
     setIsActive((prev) => !prev);
@@ -21,25 +21,39 @@ const TracklistItem = ({ src, name, artist, album }) => {
 
   return (
     <li className={styles.tracklistItem}>
-      <div className={styles.tracklistItemContainer} onClick={handleActive}>
-        <div className={styles.infoContainer}>
-          {!isActive && (
+      {!isActive && (
+        <div className={styles.tracklistItemContainer}>
+          <div className={styles.infoContainer} onClick={handleActive}>
             <div className={styles.imgContainer}>
               <img className={styles.albumImg} src={src} alt="Album Cover" />
             </div>
-          )}
-          <div className={styles.titleContainer}>
-            <h4 className={styles.songTitle}>{name}</h4>
-            <h5 className={styles.songArtist}>{artist}</h5>
+            <div className={styles.titleContainer}>
+              <h4 className={styles.songTitle}>{name}</h4>
+              <h5 className={styles.songArtist}>{artist}</h5>
+            </div>
           </div>
+          <h5 className={styles.songAlbum} onClick={handleActive}>
+            {album}
+          </h5>
+          <button className="btn_secondary" onClick={handleAddBtn}>
+            <FaPlusCircle />
+            add
+          </button>
         </div>
-        <h5 className={styles.songAlbum}>{album}</h5>
-        <button className="btn_secondary" onClick={handleAddBtn}>
-          <FaPlusCircle />
-          add
-        </button>
-      </div>
-      {isActive && <TrackDetails />}
+      )}
+      {isActive && (
+        <div className={styles.trackdetailsContainer}>
+          <TrackDetails
+            src={src}
+            name={name}
+            artist={artist}
+            album={album}
+            duration={duration}
+            handleAddBtn={handleAddBtn}
+            handleActive={handleActive}
+          />
+        </div>
+      )}
     </li>
   );
 };

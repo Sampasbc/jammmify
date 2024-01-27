@@ -1,0 +1,111 @@
+.trackDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+}
+
+.detailsContainer {
+  display: flex;
+}
+
+.imgContainer {
+  width: 25rem;
+  height: 25rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  filter: drop-shadow(2rem 2rem 2rem #000);
+  transition: all 150ms ease;
+}
+
+.imgContainer:hover {
+  transform: scale(1.02);
+}
+
+.albumImg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.infoContainer {
+  justify-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding-left: 4rem;
+}
+
+.info {
+  /* margin-bottom: 2rem; */
+}
+
+.songTitle {
+  color: #fafafa;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Helvetica;
+  font-size: 2.8rem;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-transform: capitalize;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.songInfo {
+  overflow: hidden;
+  color: hsla(0, 0%, 98%, 0.5);
+  text-overflow: ellipsis;
+  font-family: Helvetica;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-align: left;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+
+.infoData {
+  overflow: hidden;
+  color: hsla(0, 0%, 98%, 0.8);
+  text-overflow: ellipsis;
+  font-family: Helvetica;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-align: left;
+  text-transform: capitalize;
+  margin-top: 0.5rem;
+}
+
+.closeBtn {
+  justify-self: flex-end;
+  height: 4rem;
+  width: 4rem;
+  padding: 0.5rem 0.5rem;
+  text-align: center;
+  font-weight: 900;
+  line-height: 0rem;
+  color: hsla(0, 0%, 98%, 0.5);
+  background: hsla(0, 0%, 98%, 0.2);
+  border-radius: 5rem;
+  border: none;
+  transition: all 150ms ease;
+}
+
+.closeBtn:hover {
+  cursor: pointer;
+  color: hsla(0, 0%, 98%, 0.7);
+  background: hsla(0, 0%, 98%, 0.1);
+}
