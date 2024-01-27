@@ -21,6 +21,10 @@
   transition: all 200ms ease;
 }
 
+.list:hover {
+  overflow: auto;
+}
+
 .title {
   display: -webkit-box;
   -webkit-box-orient: vertical;
