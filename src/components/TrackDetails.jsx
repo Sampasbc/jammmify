@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "../css/modules/_TrackDetails.module.css";
 import { FaPlusCircle } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 const TrackDetails = ({
   src,
@@ -49,7 +50,7 @@ const TrackDetails = ({
         </div>
       </div>
       <button className={styles.closeBtn} onClick={handleActive}>
-        X
+        <IoClose size="2.5rem" />
       </button>
     </div>
   );
