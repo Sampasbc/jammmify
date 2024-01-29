@@ -43,7 +43,7 @@ const TrackDetails = ({
             </h5>
           </div>
           <button className="btn_secondary" onClick={handleAddBtn}>
-            <FaPlusCircle />
+            <FaPlusCircle size="2rem" />
             add song to a playlist
           </button>
         </div>

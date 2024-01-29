@@ -22,12 +22,12 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  max-width: 26rem;
+  max-width: fit-content;
   font-size: 1.6rem;
   font-family: helvetica, arial, sans-serif;
   font-weight: 700;
   text-transform: capitalize;
-  padding: 1.5rem 3rem;
+  padding: 1rem 1.5rem 1rem 1rem;
   color: #fafafa;
   background: #1ed760;
   border-radius: 5rem;

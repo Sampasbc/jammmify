@@ -36,7 +36,7 @@ const TracklistItem = ({ src, name, artist, album, duration }) => {
             {album}
           </h5>
           <button className="btn_secondary" onClick={handleAddBtn}>
-            <FaPlusCircle />
+            <FaPlusCircle size="2rem" />
             add
           </button>
         </div>
