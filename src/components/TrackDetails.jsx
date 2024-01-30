@@ -13,9 +13,10 @@ const TrackDetails = ({
   handleActive,
 }) => {
   const formatDuration = (duration) => {
-    const minutes = (duration / 60).toFixed(0);
-    const seconds = duration % 60;
-    if (duration % 60 === 0) {
+    const durationInSeconds = (duration / 1000).toFixed(0);
+    const minutes = (durationInSeconds / 60).toFixed(0);
+    const seconds = durationInSeconds % 60;
+    if (durationInSeconds % 60 === 0) {
       return minutes + "min";
     }
     return minutes + ":" + seconds + "min";
