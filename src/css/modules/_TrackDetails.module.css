@@ -75,6 +75,10 @@
   margin-top: 0.5rem;
 }
 
+.songInfo :nth-child(1) {
+  margin-left: 0.5rem;
+}
+
 .infoData {
   overflow: hidden;
   color: hsla(0, 0%, 98%, 0.8);

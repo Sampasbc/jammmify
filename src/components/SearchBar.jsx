@@ -46,7 +46,7 @@ const SearchBar = ({ token, handleSearchResults }) => {
         onChange={handleChange}
         placeholder="Search by name, author or album..."
         onKeyUp={(e) => {
-          if (e.key == "Enter") {
+          if (e.key === "Enter") {
             handleSearch();
           }
         }}

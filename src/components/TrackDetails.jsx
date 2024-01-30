@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../css/modules/_TrackDetails.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -12,6 +12,10 @@ const TrackDetails = ({
   handleAddBtn,
   handleActive,
 }) => {
+  useEffect(() => {
+    console.log(artist);
+  }, [artist]);
+
   const formatDuration = (duration) => {
     const durationInSeconds = (duration / 1000).toFixed(0);
     const minutes = (durationInSeconds / 60).toFixed(0);
@@ -31,14 +35,23 @@ const TrackDetails = ({
         <div className={styles.infoContainer}>
           <div className={styles.info}>
             <h4 className={styles.songTitle}>{name}</h4>
+            <div className="artists_container">
+              <h5 className={styles.songInfo}>
+                Artist:
+                {artist.map((item, index) => {
+                  return index === artist.length - 1 ? (
+                    <span className={styles.infoData}>{item.name}</span>
+                  ) : (
+                    <span className={styles.infoData}>{item.name + ", "}</span>
+                  );
+                })}
+              </h5>
+            </div>
             <h5 className={styles.songInfo}>
-              Artist: <span className={styles.infoData}>{artist}</span>
+              Album:<span className={styles.infoData}>{album}</span>
             </h5>
             <h5 className={styles.songInfo}>
-              Album: <span className={styles.infoData}>{album}</span>
-            </h5>
-            <h5 className={styles.songInfo}>
-              Song Duration:{" "}
+              Song Duration:
               <span className={styles.infoData}>
                 {formatDuration(duration)}
               </span>

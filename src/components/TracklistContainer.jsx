@@ -18,7 +18,7 @@ const TracklistContainer = ({ musics, hasTracks }) => {
                 key={item.id}
                 src={item.album.images[0].url}
                 name={item.name}
-                // artist={item.artists}
+                artist={item.artists}
                 album={item.album.name}
                 duration={item.duration_ms}
               />

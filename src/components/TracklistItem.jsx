@@ -29,7 +29,14 @@ const TracklistItem = ({ src, name, artist, album, duration }) => {
             </div>
             <div className={styles.titleContainer}>
               <h4 className={styles.songTitle}>{name}</h4>
-              <h5 className={styles.songArtist}>{artist}</h5>
+              <h5 className={styles.songArtist}>
+                {/* Checks if it's the last one and put a comma after it if not */}
+                {artist.map((item, index) => {
+                  return index === artist.length - 1
+                    ? item.name
+                    : item.name + ", ";
+                })}
+              </h5>
             </div>
           </div>
           <h5 className={styles.songAlbum} onClick={handleActive}>
