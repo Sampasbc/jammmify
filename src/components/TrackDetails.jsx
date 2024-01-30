@@ -18,12 +18,16 @@ const TrackDetails = ({
 
   const formatDuration = (duration) => {
     const durationInSeconds = (duration / 1000).toFixed(0);
-    const minutes = (durationInSeconds / 60).toFixed(0);
-    const seconds = durationInSeconds % 60;
+
+    let minutes = Math.floor(durationInSeconds / 60);
+    let seconds = durationInSeconds % 60;
     if (durationInSeconds % 60 === 0) {
-      return minutes + "min";
+      return minutes + ":00";
     }
-    return minutes + ":" + seconds + "min";
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    return minutes + ":" + seconds;
   };
 
   return (
