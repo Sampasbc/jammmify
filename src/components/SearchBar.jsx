@@ -14,7 +14,7 @@ const SearchBar = ({ token, handleSearchResults }) => {
     const endpoint = "/search";
     const searchQuery = "?q=" + searchInput.trim().replaceAll(" ", "+");
     const type = "&type=track,album,artist";
-    const limit = "&limit=20";
+    const limit = "&limit=50";
     const fullURL = URL + endpoint + searchQuery + type + limit;
     const params = {
       method: "GET",
