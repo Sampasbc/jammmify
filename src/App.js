@@ -6,11 +6,20 @@ import Header from "./components/Header";
 import PlaylistContainer from "./components/PlaylistContainer";
 import TracklistContainer from "./components/TracklistContainer";
 import Footer from "./components/Footer";
+// import {
+//   generateCodeChallenge,
+//   generateCodeVerifier,
+//   redirectToAuthCodeFlow,
+// } from "./spotify";
 
 const CLIENT_ID = "9db45e5eeb2a48ccaa82c44bb7dfe32f";
 const CLIENT_SECRET = "f2857cbf3b2b4777a4f681a61f8d727b";
 
 function App() {
+  // useEffect(() => {
+  //   redirectToAuthCodeFlow(CLIENT_ID);
+  // }, []);
+
   //Spotify API Access Token
   const [accessToken, setAccessToken] = useState("");
   useEffect(() => {
@@ -68,26 +77,6 @@ function App() {
     fetchPlaylists();
   }, []);
 
-  // Fetch Music tracks
-
-  // const [musicTracks, setMusicTracks] = useState([]);
-  // useEffect(() => {
-  //   const fetchMusicTracks = async () => {
-  //     try {
-  //       const response = await fetch("./musics.json");
-  //       if (response.ok) {
-  //         const data = await response.json();
-  //         setMusicTracks(data["musics"]);
-  //       } else {
-  //         throw new Error("Request Failed!");
-  //       }
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
-  //   fetchMusicTracks();
-  // }, []);
-
   const [musicTracks, setMusicTracks] = useState([]);
   const handleSearch = (results) => {
     setMusicTracks(results.tracks.items);
@@ -100,7 +89,7 @@ function App() {
   return (
     <div className="App">
       <div className="main">
-        <Header>
+        <Header clientId={CLIENT_ID}>
           <SearchBar token={accessToken} handleSearchResults={handleSearch} />
         </Header>
         <div className="contentWrapper">
