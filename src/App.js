@@ -6,19 +6,21 @@ import Header from "./components/Header";
 import PlaylistContainer from "./components/PlaylistContainer";
 import TracklistContainer from "./components/TracklistContainer";
 import Footer from "./components/Footer";
-// import {
-//   generateCodeChallenge,
-//   generateCodeVerifier,
-//   redirectToAuthCodeFlow,
-// } from "./spotify";
+import { getUserProfile } from "./spotify";
 
 const CLIENT_ID = "9db45e5eeb2a48ccaa82c44bb7dfe32f";
 const CLIENT_SECRET = "f2857cbf3b2b4777a4f681a61f8d727b";
 
 function App() {
-  // useEffect(() => {
-  //   redirectToAuthCodeFlow(CLIENT_ID);
-  // }, []);
+  const [profile, setProfile] = useState({});
+  useEffect(() => {
+    const accessToken = localStorage.getItem("access_token");
+    setProfile(getUserProfile(accessToken));
+  }, []);
+
+  useEffect(() => {
+    console.log(profile);
+  }, [profile]);
 
   //Spotify API Access Token
   const [accessToken, setAccessToken] = useState("");
@@ -54,10 +56,6 @@ function App() {
     fetchAccessToken();
   }, []);
 
-  useEffect(() => {
-    console.log(accessToken);
-  }, [accessToken]);
-
   // Fecth Playlists
   const [playlists, setPlaylists] = useState([]);
   useEffect(() => {
@@ -81,10 +79,6 @@ function App() {
   const handleSearch = (results) => {
     setMusicTracks(results.tracks.items);
   };
-
-  useEffect(() => {
-    console.log(musicTracks);
-  }, [musicTracks]);
 
   return (
     <div className="App">

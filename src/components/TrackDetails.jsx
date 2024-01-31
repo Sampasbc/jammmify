@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "../css/modules/_TrackDetails.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
@@ -12,9 +12,9 @@ const TrackDetails = ({
   handleAddBtn,
   handleActive,
 }) => {
-  useEffect(() => {
-    console.log(artist);
-  }, [artist]);
+  // useEffect(() => {
+  //   console.log(artist);
+  // }, [artist]);
 
   const formatDuration = (duration) => {
     const durationInSeconds = (duration / 1000).toFixed(0);
