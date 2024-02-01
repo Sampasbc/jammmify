@@ -112,6 +112,33 @@ const getUserProfile = async (token) => {
   return userProfile;
 };
 
+// Fetch Playlists
+const fetchPlaylists = async (token) => {
+  const userId = localStorage.getItem("profile_id");
+  const url = "https://api.spotify.com/v1/users/";
+  const endpoint = "/playlists";
+  const fullUrl = url + userId + endpoint;
+  try {
+    const result = await fetch(fullUrl, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    if (result.ok) {
+      const data = await result.json();
+      return data;
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const getUserPlaylists = async (token) => {
+  const userPlaylists = await fetchPlaylists(token);
+  return userPlaylists;
+};
+
 // Helper Functions
 
 const setAuthCode = (code) => {
@@ -157,4 +184,5 @@ export {
   getAuthCode,
   setAuthCode,
   getUserProfile,
+  getUserPlaylists,
 };

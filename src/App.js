@@ -6,7 +6,11 @@ import Header from "./components/Header";
 import PlaylistContainer from "./components/PlaylistContainer";
 import TracklistContainer from "./components/TracklistContainer";
 import Footer from "./components/Footer";
-import { redirectToAuthCodeFlow, getUserProfile } from "./spotify";
+import {
+  redirectToAuthCodeFlow,
+  getUserProfile,
+  getUserPlaylists,
+} from "./spotify";
 
 const CLIENT_ID = "9db45e5eeb2a48ccaa82c44bb7dfe32f";
 const CLIENT_SECRET = "f2857cbf3b2b4777a4f681a61f8d727b";
@@ -40,9 +44,17 @@ function App() {
 
   const [userPlaylists, setUserPlaylist] = useState({});
   useEffect(() => {
+    const accessToken = localStorage.getItem("access_token");
     console.log(profile);
-    console.log(profile.display_name);
+    getUserPlaylists(accessToken).then((playlists) => {
+      setUserPlaylist(playlists);
+    });
   }, [profile]);
+
+  useEffect(() => {
+    console.log(userPlaylists);
+  }, [userPlaylists]);
+
   // OLD - Spotify API Access Token - OLD
   const [accessToken, setAccessToken] = useState("");
   useEffect(() => {
