@@ -42,7 +42,7 @@ function App() {
     });
   }, []);
 
-  const [userPlaylists, setUserPlaylist] = useState({});
+  const [userPlaylists, setUserPlaylist] = useState(null);
   useEffect(() => {
     const accessToken = localStorage.getItem("access_token");
     console.log(profile);
@@ -124,6 +124,7 @@ function App() {
     localStorage.removeItem("profile_id");
     localStorage.setItem("is_logged_in", false);
     setIsLoggedIn(false);
+    setUserPlaylist(null);
   };
 
   return (

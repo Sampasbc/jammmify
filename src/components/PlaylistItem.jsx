@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../css/modules/_PlaylistItem.module.css";
 
-const PlaylistItem = ({ src, playlistName, playlistAuthor }) => {
+const PlaylistItem = ({ src, playlistName, playlistAuthor, tracks }) => {
   return (
     <li className={styles.playlistWrapper}>
       <div className={styles.imgContainer}>

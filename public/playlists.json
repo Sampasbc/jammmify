@@ -2,9 +2,15 @@
   "playlists": [
     {
       "name": "Playlist",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
+      "owner": {
+        "display_name": "John Doe"
+      },
+      "images": {
+        "0": {
+          "url": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1"
+        }
+      },
+      "tracks": [
         {
           "name": "Music",
           "artist": "John Smith",
@@ -14,10 +20,16 @@
       ]
     },
     {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
+      "name": "Playlist",
+      "owner": {
+        "display_name": "John Doe"
+      },
+      "images": {
+        "0": {
+          "url": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1"
+        }
+      },
+      "tracks": [
         {
           "name": "Music",
           "artist": "John Smith",
@@ -27,153 +39,16 @@
       ]
     },
     {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
+      "name": "Playlist",
+      "owner": {
+        "display_name": "John Doe"
+      },
+      "images": {
+        "0": {
+          "url": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1"
         }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 2",
-      "author": "John Doe",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 3",
-      "author": "Nando",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
-        {
-          "name": "Music",
-          "artist": "John Smith",
-          "album": "Music album",
-          "duration": 2000
-        }
-      ]
-    },
-    {
-      "name": "Playlist 3",
-      "author": "Nando",
-      "imgSrc": "https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1",
-      "songs": [
+      },
+      "tracks": [
         {
           "name": "Music",
           "artist": "John Smith",

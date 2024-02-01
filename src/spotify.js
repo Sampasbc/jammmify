@@ -128,7 +128,7 @@ const fetchPlaylists = async (token) => {
     });
     if (result.ok) {
       const data = await result.json();
-      return data;
+      return data["items"];
     }
   } catch (e) {
     console.log(e);
