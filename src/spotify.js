@@ -41,26 +41,26 @@ const redirectToAuthCodeFlow = async (clientId) => {
       const params = new URLSearchParams(authWindow.location.search);
       const code = params.get("code");
       if (code) {
-        clearInterval(interval);
+        console.log(code);
         setAuthCode(code);
-        // localStorage.setItem("auth_code", code);
-        getAccessToken(clientId, code);
+        getAccessToken(clientId);
         authWindow.close();
+        clearInterval(interval);
       }
     } catch (e) {
       console.log(e);
     }
-  }, 1000);
+  }, 10);
 };
 
 // Get access code from user code
-const getAccessToken = async (clientId, code) => {
+const getAccessToken = async (clientId) => {
   const verifier = localStorage.getItem("verifier");
   // const authCode = localStorage.getItem("auth_code");
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
-  params.append("code", code);
+  params.append("code", AUTHCODE);
   params.append("redirect_uri", "http://localhost:3000");
   params.append("code_verifier", verifier);
 
@@ -70,9 +70,13 @@ const getAccessToken = async (clientId, code) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: params,
     });
+    console.log("before try");
     if (result.status === 200) {
+      console.log("after try");
       const { access_token } = await result.json();
       localStorage.setItem("access_token", access_token);
+      localStorage.setItem("is_logged_in", true);
+      window.location.reload();
       return access_token;
     } else {
       throw new Error("Access Token Request Failed");
@@ -97,12 +101,15 @@ const fetchProfile = async (token) => {
     } else {
       throw new Error("Fetch Profile Failed");
     }
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 const getUserProfile = async (token) => {
   const userProfile = await fetchProfile(token);
-  console.log(userProfile);
+  // console.log(userProfile);
+  return userProfile;
 };
 
 // Helper Functions

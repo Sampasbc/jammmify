@@ -1,44 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "../css/modules/_LoginBtn.module.css";
 import { FaSpotify } from "react-icons/fa";
-import { redirectToAuthCodeFlow } from "../spotify";
 
-const LoginBtn = ({ clientId }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  const deleteThisFunction = () => {
-    setIsLoggedIn((prev) => !prev);
-    redirectToAuthCodeFlow(clientId);
-  };
-
-  // const handleLogin = () => {
-  //   const redirectUri = "http://localhost:3000";
-  //   const scopes = [
-  //     "ugc-image-upload",
-  //     "playlist-read-private",
-  //     "playlist-modify-private",
-  //     "playlist-modify-public",
-  //   ];
-  //   const authorizationUrl = spotifyApi.createAuthorizeURL(
-  //     scopes,
-  //     null,
-  //     redirectUri
-  //   );
-  //   window.location.href = authorizationUrl;
-  // };
-
+const LoginBtn = ({ isLoggedIn, profile, handleLogin, handleLogout }) => {
   return (
     <>
       {!isLoggedIn ? (
-        <button className={styles.loginBtn} onClick={deleteThisFunction}>
+        <button className={styles.loginBtn} onClick={handleLogin}>
           <FaSpotify size="3rem" color="#fafafa" />
           <span className={styles.textLogin}>Login on Spotify</span>
         </button>
       ) : (
-        <button className={styles.loginUser} onClick={deleteThisFunction}>
-          <span className={styles.textUser}>Logout</span>
-          <FaSpotify size="3rem" color="#fafafa" />
-        </button>
+        <div className={styles.logoutWrapper}>
+          <button className={styles.logoutBtn} onClick={handleLogout}>
+            Logout
+          </button>
+          <button className={styles.User}>
+            <span className={styles.textUser}>{profile.display_name}</span>
+            <div className={styles.imageWrapper}>
+              <img
+                src={profile.images ? profile.images[0].url : ""}
+                alt="Profile Avatar"
+              />
+            </div>
+          </button>
+        </div>
       )}
     </>
   );

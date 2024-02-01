@@ -6,23 +6,44 @@ import Header from "./components/Header";
 import PlaylistContainer from "./components/PlaylistContainer";
 import TracklistContainer from "./components/TracklistContainer";
 import Footer from "./components/Footer";
-import { getUserProfile } from "./spotify";
+import { redirectToAuthCodeFlow, getUserProfile } from "./spotify";
 
 const CLIENT_ID = "9db45e5eeb2a48ccaa82c44bb7dfe32f";
 const CLIENT_SECRET = "f2857cbf3b2b4777a4f681a61f8d727b";
 
 function App() {
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem("access_token");
+  //   setProfile(getUserProfile(accessToken));
+  // }, []);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [profile, setProfile] = useState({});
+
+  // APP START
   useEffect(() => {
+    const isLogged = localStorage.getItem("is_logged_in");
     const accessToken = localStorage.getItem("access_token");
-    setProfile(getUserProfile(accessToken));
+    // Check if user is logged in
+    if (isLogged === "false") {
+      setIsLoggedIn(false);
+      console.log("is NOT logged in");
+      return;
+    }
+    console.log("is logged in");
+    setIsLoggedIn(true);
+    getUserProfile(accessToken).then((profile) => {
+      setProfile(profile);
+      localStorage.setItem("profile_id", profile.id);
+    });
   }, []);
 
+  const [userPlaylists, setUserPlaylist] = useState({});
   useEffect(() => {
     console.log(profile);
+    console.log(profile.display_name);
   }, [profile]);
-
-  //Spotify API Access Token
+  // OLD - Spotify API Access Token - OLD
   const [accessToken, setAccessToken] = useState("");
   useEffect(() => {
     const params = {
@@ -56,7 +77,7 @@ function App() {
     fetchAccessToken();
   }, []);
 
-  // Fecth Playlists
+  // Fecth Playlists - MOCK API
   const [playlists, setPlaylists] = useState([]);
   useEffect(() => {
     const fetchPlaylists = async () => {
@@ -80,15 +101,38 @@ function App() {
     setMusicTracks(results.tracks.items);
   };
 
+  // Hanlde Login Functions
+
+  const handleLogIn = () => {
+    redirectToAuthCodeFlow(CLIENT_ID);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("profile_id");
+    localStorage.setItem("is_logged_in", false);
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <div className="main">
-        <Header clientId={CLIENT_ID}>
+        <Header
+          clientId={CLIENT_ID}
+          isLoggedIn={isLoggedIn}
+          profile={profile}
+          handleLogin={handleLogIn}
+          handleLogout={handleLogOut}
+        >
           <SearchBar token={accessToken} handleSearchResults={handleSearch} />
         </Header>
         <div className="contentWrapper">
-          <PlaylistContainer playlists={playlists} />
-          <TracklistContainer musics={musicTracks} hasTracks={true} />
+          <PlaylistContainer playlists={playlists} isLoggedIn={isLoggedIn} />
+          <TracklistContainer
+            musics={musicTracks}
+            hasTracks={true}
+            isLoggedIn={isLoggedIn}
+          />
         </div>
       </div>
       <Footer />
