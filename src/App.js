@@ -139,7 +139,11 @@ function App() {
           <SearchBar token={accessToken} handleSearchResults={handleSearch} />
         </Header>
         <div className="contentWrapper">
-          <PlaylistContainer playlists={playlists} isLoggedIn={isLoggedIn} />
+          <PlaylistContainer
+            playlists={playlists}
+            isLoggedIn={isLoggedIn}
+            userPlaylists={userPlaylists}
+          />
           <TracklistContainer
             musics={musicTracks}
             hasTracks={true}

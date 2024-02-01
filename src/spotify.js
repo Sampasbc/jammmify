@@ -117,7 +117,8 @@ const fetchPlaylists = async (token) => {
   const userId = localStorage.getItem("profile_id");
   const url = "https://api.spotify.com/v1/users/";
   const endpoint = "/playlists";
-  const fullUrl = url + userId + endpoint;
+  const limit = "?limit=50";
+  const fullUrl = url + userId + endpoint + limit;
   try {
     const result = await fetch(fullUrl, {
       method: "GET",
