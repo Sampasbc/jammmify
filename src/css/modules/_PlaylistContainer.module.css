@@ -11,6 +11,12 @@
   padding: 3rem;
   border-radius: 1rem;
   background: #262728;
+  transition: all 800ms ease;
+  opacity: 0.6;
+}
+
+.playlistContainer:hover {
+  opacity: 1;
 }
 
 .title {
