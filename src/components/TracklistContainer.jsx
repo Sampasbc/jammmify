@@ -12,7 +12,7 @@ const TracklistContainer = ({ musics, isPlaylist, currentPlaylistName }) => {
   const searchTracks = (
     <>
       <h3 className={styles.title}>Songs</h3>
-      {/* <div className={styles.tableheadWrapper}>
+      <div className={styles.tableheadWrapper}>
         <h4 className={styles.thTitle}>Title</h4>
         <h4 className={styles.thAlbum}>Album</h4>
       </div>
@@ -31,7 +31,7 @@ const TracklistContainer = ({ musics, isPlaylist, currentPlaylistName }) => {
             ))}
           </>
         )}
-      </ul> */}
+      </ul>
     </>
   );
 
