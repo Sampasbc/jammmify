@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import styles from "../css/modules/_TracklistContainer.module.css";
 import TracklistItem from "./TracklistItem";
 
-const TracklistContainer = ({ musics, isPlaylist, currentPlaylistName }) => {
+const TracklistContainer = ({
+  searchTracks,
+  playlistTracks,
+  isPlaylist,
+  currentPlaylistName,
+}) => {
   // const [playlistName, setPlaylistName] = useState("");
   // useEffect(() => {
   //   setPlaylistName(currentPlaylistName);
   // }, [currentPlaylistName]);
-  const hasTracks = musics.length > 0;
+  const hasTracks = true;
 
-  const searchTracks = (
+  const searchTracksList = (
     <>
       <h3 className={styles.title}>Songs</h3>
       <div className={styles.tableheadWrapper}>
@@ -17,12 +22,12 @@ const TracklistContainer = ({ musics, isPlaylist, currentPlaylistName }) => {
         <h4 className={styles.thAlbum}>Album</h4>
       </div>
       <ul className={styles.list}>
-        {hasTracks && (
+        {searchTracks.length > 0 && (
           <>
-            {musics.map((item) => (
+            {searchTracks.map((item) => (
               <TracklistItem
                 key={item.id}
-                src={item.album.images[0].url}
+                src={item.album.images ? item.album.images[0].url : ""}
                 name={item.name}
                 artist={item.artists}
                 album={item.album.name}
@@ -35,35 +40,35 @@ const TracklistContainer = ({ musics, isPlaylist, currentPlaylistName }) => {
     </>
   );
 
-  const playlistTracks = (
+  const playlistTracksList = (
     <>
       <h3 className={styles.title}>{currentPlaylistName}</h3>
-      {/* <div className={styles.tableheadWrapper}>
+      <div className={styles.tableheadWrapper}>
         <h4 className={styles.thTitle}>Title</h4>
         <h4 className={styles.thAlbum}>Album</h4>
       </div>
       <ul className={styles.list}>
         {hasTracks && (
           <>
-            {musics.map((item) => (
+            {playlistTracks.map((item) => (
               <TracklistItem
                 key={item.id}
-                src={item.album.images[0].url}
-                name={item.name}
-                artist={item.artists}
-                album={item.album.name}
-                duration={item.duration_ms}
+                src={item.track.album.images[0].url}
+                name={item.track.name}
+                artist={item.track.artists}
+                album={item.track.album.name}
+                duration={item.track.duration_ms}
               />
             ))}
           </>
         )}
-      </ul> */}
+      </ul>
     </>
   );
 
   return (
     <div className={styles.tracklistContainer}>
-      {isPlaylist ? playlistTracks : searchTracks}
+      {isPlaylist ? playlistTracksList : searchTracksList}
     </div>
   );
 };

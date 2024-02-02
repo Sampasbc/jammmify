@@ -18,7 +18,7 @@ const CLIENT_SECRET = "f2857cbf3b2b4777a4f681a61f8d727b";
 function App() {
   // GLOBAL STATES
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [isPlaylist, setIsPlaylist] = useState(true);
+  const [isPlaylist, setIsPlaylist] = useState(false);
   const [profile, setProfile] = useState(undefined);
 
   useEffect(() => {
@@ -112,16 +112,21 @@ function App() {
   };
 
   // HANDLE SEARCH
-  const [musicTracks, setMusicTracks] = useState([]);
+  const [searchTracks, setSearchTracks] = useState([]);
   const handleSearchTracks = (results) => {
-    setMusicTracks(results.tracks.items);
     setIsPlaylist(false);
+    setSearchTracks(results.tracks.items);
   };
 
+  useEffect(() => {
+    console.log(searchTracks);
+  }, [searchTracks]);
+
   // HANDLE OPEN PLAYLIST
+  const [playlistTracks, setPlaylistTracks] = useState([]);
   const handlePlaylistTracks = (results) => {
-    setMusicTracks(results.items);
     setIsPlaylist(true);
+    setPlaylistTracks(results.items);
   };
 
   // GET ACTIVE PLAYLIST NAME
@@ -153,7 +158,8 @@ function App() {
             getPlaylistName={getPlaylistName}
           />
           <TracklistContainer
-            musics={musicTracks}
+            searchTracks={searchTracks}
+            playlistTracks={playlistTracks}
             isLoggedIn={isLoggedIn}
             isPlaylist={isPlaylist}
             currentPlaylistName={currentPlaylistName}
