@@ -16,10 +16,12 @@ const LoginBtn = ({ isLoggedIn, profile, handleLogin, handleLogout }) => {
             Logout
           </button>
           <button className={styles.User}>
-            <span className={styles.textUser}>{profile.display_name}</span>
+            <span className={styles.textUser}>
+              {profile && profile.display_name}
+            </span>
             <div className={styles.imageWrapper}>
               <img
-                src={profile.images ? profile.images[0].url : ""}
+                src={profile !== undefined ? profile.images[0].url : ""}
                 alt="Profile Avatar"
               />
             </div>

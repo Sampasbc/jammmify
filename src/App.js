@@ -16,13 +16,14 @@ const CLIENT_ID = "9db45e5eeb2a48ccaa82c44bb7dfe32f";
 const CLIENT_SECRET = "f2857cbf3b2b4777a4f681a61f8d727b";
 
 function App() {
-  // useEffect(() => {
-  //   const accessToken = localStorage.getItem("access_token");
-  //   setProfile(getUserProfile(accessToken));
-  // }, []);
-
+  // GLOBAL STATES
   const [isLoggedIn, setIsLoggedIn] = useState(null);
-  const [profile, setProfile] = useState({});
+  const [isPlaylist, setIsPlaylist] = useState(true);
+  const [profile, setProfile] = useState(undefined);
+
+  useEffect(() => {
+    console.log(isPlaylist);
+  }, [isPlaylist]);
 
   // APP START
   useEffect(() => {
@@ -39,25 +40,29 @@ function App() {
     setIsLoggedIn(true);
     getUserProfile(accessToken).then((profile) => {
       setProfile(profile);
+      // console.log(profile);
       localStorage.setItem("profile_id", profile.id);
     });
   }, []);
 
+  // GET USER PLAYLISTS
   const [userPlaylists, setUserPlaylist] = useState(null);
   useEffect(() => {
+    if (profile == undefined) return;
+
     const accessToken = localStorage.getItem("access_token");
-    console.log(profile);
+    // console.log(profile);
     getUserPlaylists(accessToken).then((playlists) => {
       setUserPlaylist(playlists);
     });
   }, [profile]);
 
   useEffect(() => {
-    console.log(userPlaylists);
+    // console.log(userPlaylists);
   }, [userPlaylists]);
 
-  // OLD - Spotify API Access Token - OLD
-  const [accessToken, setAccessToken] = useState("");
+  // GET JAMMMIFY ACCESS TOKEN (APP CREDENTIALS)
+  const [appAccessToken, setAppAccessToken] = useState("");
   useEffect(() => {
     const params = {
       method: "POST",
@@ -79,7 +84,7 @@ function App() {
         );
         if (response.ok) {
           const data = await response.json();
-          setAccessToken(data["access_token"]);
+          setAppAccessToken(data["access_token"]);
         } else {
           throw new Error("Request Failed!");
         }
@@ -90,42 +95,39 @@ function App() {
     fetchAccessToken();
   }, []);
 
-  // Fecth Playlists - MOCK API
-  const [playlists, setPlaylists] = useState([]);
-  useEffect(() => {
-    const fetchPlaylists = async () => {
-      try {
-        const response = await fetch("./playlists.json");
-        if (response.status === 200) {
-          const data = await response.json();
-          setPlaylists(data["playlists"]);
-        } else {
-          throw new Error("Request Failed!");
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchPlaylists();
-  }, []);
-
-  const [musicTracks, setMusicTracks] = useState([]);
-  const handleSearch = (results) => {
-    setMusicTracks(results.tracks.items);
+  // HANDLE LOGIN
+  const handleLogIn = async () => {
+    await redirectToAuthCodeFlow(CLIENT_ID, setIsLoggedIn);
   };
 
-  // Hanlde Login Functions
-
-  const handleLogIn = () => {
-    redirectToAuthCodeFlow(CLIENT_ID);
-  };
-
+  // HANDLE LOGOUT
   const handleLogOut = () => {
+    localStorage.removeItem("verifier");
     localStorage.removeItem("access_token");
     localStorage.removeItem("profile_id");
     localStorage.setItem("is_logged_in", false);
     setIsLoggedIn(false);
+    setProfile(undefined);
     setUserPlaylist(null);
+  };
+
+  // HANDLE SEARCH
+  const [musicTracks, setMusicTracks] = useState([]);
+  const handleSearchTracks = (results) => {
+    setMusicTracks(results.tracks.items);
+    setIsPlaylist(false);
+  };
+
+  // HANDLE OPEN PLAYLIST
+  const handlePlaylistTracks = (results) => {
+    setMusicTracks(results.items);
+    setIsPlaylist(true);
+  };
+
+  // GET ACTIVE PLAYLIST NAME
+  const [currentPlaylistName, setCurrentPlaylistName] = useState("");
+  const getPlaylistName = (result) => {
+    setCurrentPlaylistName(result);
   };
 
   return (
@@ -138,18 +140,23 @@ function App() {
           handleLogin={handleLogIn}
           handleLogout={handleLogOut}
         >
-          <SearchBar token={accessToken} handleSearchResults={handleSearch} />
+          <SearchBar
+            token={appAccessToken}
+            handleSearchResults={handleSearchTracks}
+          />
         </Header>
         <div className="contentWrapper">
           <PlaylistContainer
-            playlists={playlists}
             isLoggedIn={isLoggedIn}
             userPlaylists={userPlaylists}
+            handlePlaylistTracks={handlePlaylistTracks}
+            getPlaylistName={getPlaylistName}
           />
           <TracklistContainer
             musics={musicTracks}
-            hasTracks={true}
             isLoggedIn={isLoggedIn}
+            isPlaylist={isPlaylist}
+            currentPlaylistName={currentPlaylistName}
           />
         </div>
       </div>

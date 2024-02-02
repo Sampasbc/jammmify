@@ -1,18 +1,8 @@
 const clientId = "9db45e5eeb2a48ccaa82c44bb7dfe32f";
 let AUTHCODE = null;
 
-// API Functions
-
-const appInitialization = async () => {
-  if (!getAuthCode()) return;
-
-  const accessToken = await getAccessToken(clientId, getAuthCode());
-  const profile = await fetchProfile(accessToken);
-  return profile;
-};
-
-// Redirects user to authentication page
-const redirectToAuthCodeFlow = async (clientId) => {
+// REDIRECTS USER TO AUTHENTICATION PAGE
+const redirectToAuthCodeFlow = async (clientId, setIsLoggedIn) => {
   const verifier = generateCodeVerifier(128);
   const challenge = await generateCodeChallenge(verifier);
 
@@ -44,16 +34,16 @@ const redirectToAuthCodeFlow = async (clientId) => {
         console.log(code);
         setAuthCode(code);
         getAccessToken(clientId);
-        authWindow.close();
         clearInterval(interval);
+        authWindow.close();
       }
     } catch (e) {
       console.log(e);
     }
-  }, 10);
+  }, 2000);
 };
 
-// Get access code from user code
+// GET ACCESS TOKEN FROM USER AUTHCODE
 const getAccessToken = async (clientId) => {
   const verifier = localStorage.getItem("verifier");
   // const authCode = localStorage.getItem("auth_code");
@@ -86,7 +76,7 @@ const getAccessToken = async (clientId) => {
   }
 };
 
-// Call API and fetch profile data
+// CALL API AND FETCH PROFILE DATA
 const fetchProfile = async (token) => {
   try {
     const result = await fetch("https://api.spotify.com/v1/me", {
@@ -112,7 +102,7 @@ const getUserProfile = async (token) => {
   return userProfile;
 };
 
-// Fetch Playlists
+// CALL API AND FETCH USER PLAYLISTS
 const fetchPlaylists = async (token) => {
   const userId = localStorage.getItem("profile_id");
   const url = "https://api.spotify.com/v1/users/";
@@ -140,7 +130,7 @@ const getUserPlaylists = async (token) => {
   return userPlaylists;
 };
 
-// Helper Functions
+// HELPER FUNCTIONS
 
 const setAuthCode = (code) => {
   AUTHCODE = code;
@@ -148,10 +138,6 @@ const setAuthCode = (code) => {
 
 const getAuthCode = () => {
   return AUTHCODE;
-};
-
-const stateSetter = (setState, value) => {
-  setState(value);
 };
 
 const generateCodeVerifier = (length) => {
@@ -180,8 +166,6 @@ export {
   redirectToAuthCodeFlow,
   getAccessToken,
   fetchProfile,
-  appInitialization,
-  stateSetter,
   getAuthCode,
   setAuthCode,
   getUserProfile,
