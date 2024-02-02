@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../css/modules/_TracklistContainer.module.css";
 import TracklistItem from "./TracklistItem";
 
@@ -8,12 +8,6 @@ const TracklistContainer = ({
   isPlaylist,
   currentPlaylistName,
 }) => {
-  // const [playlistName, setPlaylistName] = useState("");
-  // useEffect(() => {
-  //   setPlaylistName(currentPlaylistName);
-  // }, [currentPlaylistName]);
-  const hasTracks = true;
-
   const searchTracksList = (
     <>
       <h3 className={styles.title}>Songs</h3>

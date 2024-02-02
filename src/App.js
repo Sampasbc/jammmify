@@ -48,7 +48,7 @@ function App() {
   // GET USER PLAYLISTS
   const [userPlaylists, setUserPlaylist] = useState(null);
   useEffect(() => {
-    if (profile == undefined) return;
+    if (profile === undefined) return;
 
     const accessToken = localStorage.getItem("access_token");
     // console.log(profile);
