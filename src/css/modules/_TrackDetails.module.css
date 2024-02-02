@@ -12,7 +12,8 @@
 }
 
 .imgContainer {
-  width: 25rem;
+  min-width: 25rem;
+  max-width: 25rem;
   height: 25rem;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -41,6 +42,16 @@
   padding-left: 4rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .imgContainer {
+    display: none;
+  }
+
+  .infoContainer {
+    padding-left: 0;
+  }
+}
+
 .info {
   /* margin-bottom: 2rem; */
 }
@@ -48,7 +59,7 @@
 .songTitle {
   color: #fafafa;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   font-family: Helvetica;
   font-size: 2.8rem;
   font-style: normal;

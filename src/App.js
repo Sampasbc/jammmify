@@ -29,8 +29,9 @@ function App() {
     const isLogged = localStorage.getItem("is_logged_in");
     const accessToken = localStorage.getItem("access_token");
     // Check if user is logged in
-    if (isLogged === "false") {
+    if (isLogged === "false" || isLogged === null) {
       setIsLoggedIn(false);
+      localStorage.setItem("is_logged_in", false);
       console.log("is NOT logged in");
       return;
     }

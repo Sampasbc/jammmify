@@ -26,7 +26,8 @@
 }
 
 .imgContainer {
-  width: 6rem;
+  min-width: 6rem;
+  max-width: 6rem;
   height: 6rem;
   overflow: hidden;
   border-radius: 0.5rem;
@@ -43,10 +44,25 @@
   padding-left: 1.6rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .imgContainer {
+    display: none;
+  }
+
+  .titleContainer {
+    padding-left: 0;
+  }
+}
+
 .songTitle {
   color: #fafafa;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  align-self: stretch;
+  /* white-space: nowrap; */
   font-family: Helvetica;
   font-size: 1.8rem;
   font-style: normal;
@@ -61,6 +77,9 @@
   overflow: hidden;
   color: #fafafa;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
   font-family: Helvetica;
   font-size: 1.8rem;
   font-style: normal;
@@ -76,6 +95,11 @@
   overflow: hidden;
   color: #fafafa;
   text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  /* align-self: stretch; */
   font-family: Helvetica;
   font-size: 1.8rem;
   font-style: normal;

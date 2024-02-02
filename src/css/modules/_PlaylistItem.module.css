@@ -18,7 +18,8 @@
 
 .imgContainer {
   display: flex;
-  width: 5rem;
+  min-width: 5rem;
+  max-width: 5rem;
   height: 5rem;
 }
 
@@ -29,6 +30,12 @@
   border-radius: 0.5rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .imgContainer {
+    display: none;
+  }
+}
+
 .infoContainer {
   display: flex;
   flex-direction: column;
@@ -36,11 +43,14 @@
 }
 
 .playlistTitle {
-  align-self: stretch;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  /* align-self: stretch; */
   overflow: hidden;
   color: #fafafa;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   font-family: Helvetica;
   font-size: 1.8rem;
   font-style: normal;
