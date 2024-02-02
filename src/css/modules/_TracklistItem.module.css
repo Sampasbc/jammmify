@@ -2,14 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: fit-content;
 }
 
 .tracklistItemContainer {
   display: grid;
   grid-template-columns: 3fr 2fr 0.5fr;
   align-items: center;
-  min-height: 8rem;
-  padding: 0.8rem;
+  /* min-height: 8rem; */
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
   box-sizing: border-box;
   border-radius: 0.5rem;
   transition: all 200ms ease;

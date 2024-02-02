@@ -40,6 +40,21 @@
   text-transform: capitalize;
 }
 
+.playlistTitle {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  color: #fafafa;
+  text-overflow: ellipsis;
+  font-family: Helvetica;
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.036rem;
+  text-transform: capitalize;
+}
+
 .tableheadWrapper {
   display: grid;
   grid-template-columns: 3fr 2.6fr;

@@ -42,13 +42,13 @@ const TracklistContainer = ({
 
   const playlistTracksList = (
     <>
-      <h3 className={styles.title}>{currentPlaylistName}</h3>
+      <h3 className={styles.playlistTitle}>{currentPlaylistName}</h3>
       <div className={styles.tableheadWrapper}>
         <h4 className={styles.thTitle}>Title</h4>
         <h4 className={styles.thAlbum}>Album</h4>
       </div>
       <ul className={styles.list}>
-        {hasTracks && (
+        {playlistTracks.length > 0 && (
           <>
             {playlistTracks.map((item) => (
               <TracklistItem
