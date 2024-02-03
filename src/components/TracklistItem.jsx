@@ -3,7 +3,7 @@ import styles from "../css/modules/_TracklistItem.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 import TrackDetails from "./TrackDetails";
 
-const TracklistItem = ({ src, name, artist, album, duration }) => {
+const TracklistItem = ({ src, name, artist, album, duration, isLoggedIn }) => {
   const [isActive, setIsActive] = useState(false);
   const handleActive = (active) => {
     setIsActive((prev) => !prev);
@@ -42,10 +42,12 @@ const TracklistItem = ({ src, name, artist, album, duration }) => {
           <h5 className={styles.songAlbum} onClick={handleActive}>
             {album}
           </h5>
-          <button className="btn_secondary" onClick={handleAddBtn}>
-            <FaPlusCircle size="2rem" />
-            add
-          </button>
+          {isLoggedIn && (
+            <button className="btn_secondary" onClick={handleAddBtn}>
+              <FaPlusCircle size="2rem" />
+              add
+            </button>
+          )}
         </div>
       )}
       {isActive && (
@@ -56,6 +58,7 @@ const TracklistItem = ({ src, name, artist, album, duration }) => {
             artist={artist}
             album={album}
             duration={duration}
+            isLoggedIn={isLoggedIn}
             handleAddBtn={handleAddBtn}
             handleActive={handleActive}
           />

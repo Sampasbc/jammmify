@@ -39,3 +39,14 @@
   cursor: pointer;
   background: hsla(141, 76%, 48%, 0.75);
 }
+
+.btn_disabled {
+  padding: 1.5rem 3rem;
+  background: hsla(0, 0%, 98%, 0.2);
+}
+
+.btn_disabled:hover {
+  cursor: default;
+  padding: 1.5rem 3rem;
+  background: hsla(0, 0%, 98%, 0.2);
+}

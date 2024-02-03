@@ -21,10 +21,6 @@ function App() {
   const [isPlaylist, setIsPlaylist] = useState(false);
   const [profile, setProfile] = useState(undefined);
 
-  useEffect(() => {
-    console.log(isPlaylist);
-  }, [isPlaylist]);
-
   // APP START
   useEffect(() => {
     const isLogged = localStorage.getItem("is_logged_in");
@@ -45,6 +41,10 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    console.log(isLoggedIn);
+  }, [isLoggedIn]);
+
   // GET USER PLAYLISTS
   const [userPlaylists, setUserPlaylist] = useState(null);
   useEffect(() => {
@@ -56,10 +56,6 @@ function App() {
       setUserPlaylist(playlists);
     });
   }, [profile]);
-
-  useEffect(() => {
-    // console.log(userPlaylists);
-  }, [userPlaylists]);
 
   // GET JAMMMIFY ACCESS TOKEN (APP CREDENTIALS)
   const [appAccessToken, setAppAccessToken] = useState("");

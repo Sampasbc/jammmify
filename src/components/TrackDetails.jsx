@@ -11,6 +11,7 @@ const TrackDetails = ({
   duration,
   handleAddBtn,
   handleActive,
+  isLoggedIn,
 }) => {
   // useEffect(() => {
   //   console.log(artist);
@@ -41,7 +42,7 @@ const TrackDetails = ({
             <h4 className={styles.songTitle}>{name}</h4>
             <div className="artists_container">
               <h5 className={styles.songInfo}>
-                Artist:
+                {artist.length > 1 ? "Artists:" : "Artist:"}
                 {artist.map((item, index) => {
                   return index === artist.length - 1 ? (
                     <span className={styles.infoData}>{item.name}</span>
@@ -61,10 +62,20 @@ const TrackDetails = ({
               </span>
             </h5>
           </div>
-          <button className="btn_secondary" onClick={handleAddBtn}>
-            <FaPlusCircle size="2rem" />
-            add song to a playlist
-          </button>
+          {isLoggedIn ? (
+            <button className="btn_secondary" onClick={handleAddBtn}>
+              <FaPlusCircle size="2rem" />
+              add song to a playlist
+            </button>
+          ) : (
+            <button
+              className="btn_secondary btn_disabled"
+              onClick={handleAddBtn}
+              disabled
+            >
+              Login to add the song to a playlist
+            </button>
+          )}
         </div>
       </div>
       <button className={styles.closeBtn} onClick={handleActive}>
