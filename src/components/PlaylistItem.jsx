@@ -27,7 +27,7 @@ const PlaylistItem = ({
       const result = await fetch(fullUrl, params);
       if (result.ok) {
         const data = await result.json();
-        console.log(data.items);
+        // console.log(data.items);
         getPlaylistName(playlistName);
         handlePlaylistTracks(data);
       } else {

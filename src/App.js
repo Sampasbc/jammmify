@@ -39,11 +39,11 @@ function App() {
       // console.log(profile);
       localStorage.setItem("profile_id", profile.id);
     });
-  }, []);
-
-  useEffect(() => {
-    console.log(isLoggedIn);
   }, [isLoggedIn]);
+
+  // useEffect(() => {
+  //   console.log(isLoggedIn);
+  // }, [isLoggedIn]);
 
   // GET USER PLAYLISTS
   const [userPlaylists, setUserPlaylist] = useState(null);
@@ -124,6 +124,10 @@ function App() {
     setIsPlaylist(true);
     setPlaylistTracks(results.items);
   };
+
+  useEffect(() => {
+    console.log(playlistTracks);
+  }, [playlistTracks]);
 
   // GET ACTIVE PLAYLIST NAME
   const [currentPlaylistName, setCurrentPlaylistName] = useState("");

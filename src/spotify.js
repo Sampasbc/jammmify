@@ -33,7 +33,7 @@ const redirectToAuthCodeFlow = async (clientId, setIsLoggedIn) => {
       if (code) {
         console.log(code);
         setAuthCode(code);
-        getAccessToken(clientId);
+        getAccessToken(clientId, setIsLoggedIn);
         clearInterval(interval);
         authWindow.close();
       }
@@ -44,7 +44,7 @@ const redirectToAuthCodeFlow = async (clientId, setIsLoggedIn) => {
 };
 
 // GET ACCESS TOKEN FROM USER AUTHCODE
-const getAccessToken = async (clientId) => {
+const getAccessToken = async (clientId, setIsLoggedIn) => {
   const verifier = localStorage.getItem("verifier");
   // const authCode = localStorage.getItem("auth_code");
   const params = new URLSearchParams();
@@ -66,7 +66,8 @@ const getAccessToken = async (clientId) => {
       const { access_token } = await result.json();
       localStorage.setItem("access_token", access_token);
       localStorage.setItem("is_logged_in", true);
-      window.location.reload();
+      setIsLoggedIn(true);
+      // window.location.reload();
       return access_token;
     } else {
       throw new Error("Access Token Request Failed");
