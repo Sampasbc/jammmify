@@ -3,6 +3,7 @@ import styles from "../css/modules/_TracklistContainer.module.css";
 import TracklistItem from "./TracklistItem";
 
 const TracklistContainer = ({
+  userPlaylists,
   searchTracks,
   playlistTracks,
   isPlaylist,
@@ -22,12 +23,14 @@ const TracklistContainer = ({
             {searchTracks.map((item) => (
               <TracklistItem
                 key={item.id}
+                trackId={item.id}
                 src={item.album.images ? item.album.images[0].url : ""}
                 name={item.name}
                 artist={item.artists}
                 album={item.album.name}
                 duration={item.duration_ms}
                 isLoggedIn={isLoggedIn}
+                userPlaylists={userPlaylists}
               />
             ))}
           </>
@@ -49,12 +52,14 @@ const TracklistContainer = ({
             {playlistTracks.map((item) => (
               <TracklistItem
                 key={item.id}
+                trackId={item.track.id}
                 src={item.track.album.images[0].url}
                 name={item.track.name}
                 artist={item.track.artists}
                 album={item.track.album.name}
                 duration={item.track.duration_ms}
                 isLoggedIn={isLoggedIn}
+                userPlaylists={userPlaylists}
               />
             ))}
           </>

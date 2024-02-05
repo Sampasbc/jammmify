@@ -9,7 +9,7 @@
   max-height: 70vh;
   padding: 3rem;
   border-radius: 1rem;
-  background: #262728;
+  background: hsl(210, 3%, 15%);
 }
 
 .list {

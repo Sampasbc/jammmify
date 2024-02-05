@@ -131,6 +131,46 @@ const getUserPlaylists = async (token) => {
   return userPlaylists;
 };
 
+// ADD SONG TO A PLAYLIST
+const addSongToPlaylist = async (
+  token,
+  playlistId,
+  playlistName,
+  trackId,
+  trackName
+) => {
+  const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+  const params = {
+    method: "POST",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      uris: ["spotify:track:" + trackId.toString()],
+      // position: 0,
+    }),
+  };
+
+  try {
+    const result = await fetch(url, params);
+    console.log(url);
+    console.log(params);
+    if (result.ok) {
+      const data = await result.json();
+      console.log(data);
+      window.alert(
+        `${trackName} has been added to the playlist "${playlistName}"`
+      );
+    } else {
+      window.alert("Sorry, something went wrong. Please try again");
+      throw new Error("Failed to add song to the playlist");
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 // HELPER FUNCTIONS
 
 const setAuthCode = (code) => {
@@ -171,4 +211,5 @@ export {
   setAuthCode,
   getUserProfile,
   getUserPlaylists,
+  addSongToPlaylist,
 };
