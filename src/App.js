@@ -158,6 +158,7 @@ function App() {
             getPlaylistName={getPlaylistName}
           />
           <TracklistContainer
+            userPlaylists={userPlaylists}
             searchTracks={searchTracks}
             playlistTracks={playlistTracks}
             isLoggedIn={isLoggedIn}

@@ -9,6 +9,9 @@ const PlaylistItem = ({
   handlePlaylistTracks,
   playlistId,
   getPlaylistName,
+  isModal,
+  handleClose,
+  handleAddMusicToPlaylist,
 }) => {
   const handleFetchPlaylist = async () => {
     const accessToken = localStorage.getItem("access_token");
@@ -38,8 +41,17 @@ const PlaylistItem = ({
     }
   };
 
+  const handleAddSong = () => {
+    console.log("add this motherfckin song");
+    handleAddMusicToPlaylist(playlistId, playlistName);
+    handleClose();
+  };
+
   return (
-    <li className={styles.playlistWrapper} onClick={handleFetchPlaylist}>
+    <li
+      className={styles.playlistWrapper}
+      onClick={!isModal ? handleFetchPlaylist : handleAddSong}
+    >
       <div className={styles.imgContainer}>
         <img className={styles.playlistImg} src={src} alt="Playlist" />
       </div>

@@ -31,6 +31,7 @@ const PlaylistContainer = ({
                   tracks={list.tracks}
                   getPlaylistName={getPlaylistName}
                   handlePlaylistTracks={handlePlaylistTracks}
+                  isModal={false}
                 />
               ))}
             </ul>
