@@ -11,7 +11,7 @@ const redirectToAuthCodeFlow = async (clientId, setIsLoggedIn) => {
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("response_type", "code");
-  params.append("redirect_uri", "https://nando-jammming.netlify.app");
+  params.append("redirect_uri", "https://nando-jammmify.netlify.app");
   params.append(
     "scope",
     "user-read-private user-read-email playlist-read-private playlist-modify-private playlist-modify-public"
@@ -51,7 +51,7 @@ const getAccessToken = async (clientId, setIsLoggedIn) => {
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
   params.append("code", AUTHCODE);
-  params.append("redirect_uri", "https://nando-jammming.netlify.app");
+  params.append("redirect_uri", "https://nando-jammmify.netlify.app");
   params.append("code_verifier", verifier);
 
   try {
