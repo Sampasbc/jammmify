@@ -10,13 +10,11 @@ const TrackDetails = ({
   album,
   duration,
   handleAddBtn,
+  handleRemoveSong,
   handleActive,
   isLoggedIn,
+  isPlaylist,
 }) => {
-  // useEffect(() => {
-  //   console.log(artist);
-  // }, [artist]);
-
   const formatDuration = (duration) => {
     const durationInSeconds = (duration / 1000).toFixed(0);
 
@@ -62,20 +60,32 @@ const TrackDetails = ({
               </span>
             </h5>
           </div>
-          {isLoggedIn ? (
-            <button className="btn_secondary" onClick={handleAddBtn}>
-              <FaPlusCircle size="2rem" />
-              add song to a playlist
-            </button>
-          ) : (
-            <button
-              className="btn_secondary btn_disabled"
-              onClick={handleAddBtn}
-              disabled
-            >
-              Login to add the song to a playlist
-            </button>
-          )}
+          <div className={styles.btnWrapper}>
+            {isLoggedIn ? (
+              <>
+                <button className="btn_secondary" onClick={handleAddBtn}>
+                  <FaPlusCircle size="2rem" />
+                  add song to a playlist
+                </button>
+                {isPlaylist && (
+                  <button
+                    className="btn_secondary remove_btn"
+                    onClick={handleRemoveSong}
+                  >
+                    remove from playlist
+                  </button>
+                )}
+              </>
+            ) : (
+              <button
+                className="btn_secondary btn_disabled"
+                onClick={handleAddBtn}
+                disabled
+              >
+                Login to add the song to a playlist
+              </button>
+            )}
+          </div>
         </div>
       </div>
       <button className={styles.closeBtn} onClick={handleActive}>

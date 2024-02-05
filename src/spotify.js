@@ -11,6 +11,7 @@ const redirectToAuthCodeFlow = async (clientId, setIsLoggedIn) => {
   const params = new URLSearchParams();
   params.append("client_id", clientId);
   params.append("response_type", "code");
+  // params.append("redirect_uri", "http://localhost:3000");
   params.append("redirect_uri", "https://nando-jammmify.netlify.app");
   params.append(
     "scope",
@@ -51,6 +52,7 @@ const getAccessToken = async (clientId, setIsLoggedIn) => {
   params.append("client_id", clientId);
   params.append("grant_type", "authorization_code");
   params.append("code", AUTHCODE);
+  // params.append("redirect_uri", "http://localhost:3000");
   params.append("redirect_uri", "https://nando-jammmify.netlify.app");
   params.append("code_verifier", verifier);
 
@@ -171,6 +173,47 @@ const addSongToPlaylist = async (
   }
 };
 
+// REMOVE SONG FROM PLAYLIST
+const removeSongFromPlaylist = async (
+  token,
+  playlistId,
+  playlistName,
+  trackId,
+  trackName
+) => {
+  const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+  const params = {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer " + token,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      tracks: [
+        {
+          uri: "spotify:track:" + trackId.toString(),
+        },
+      ],
+    }),
+  };
+
+  try {
+    const result = await fetch(url, params);
+    if (result.ok) {
+      const data = await result.json();
+      console.log(data);
+      console.log("song removed from playlist");
+      window.alert(`${trackName} has been removed from "${playlistName}"`);
+      window.location.reload();
+    } else {
+      window.alert("Sorry, something went wrong. Please try again later");
+      throw new Error("Failed to remove song");
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 // HELPER FUNCTIONS
 
 const setAuthCode = (code) => {
@@ -212,4 +255,5 @@ export {
   getUserProfile,
   getUserPlaylists,
   addSongToPlaylist,
+  removeSongFromPlaylist,
 };

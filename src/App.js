@@ -41,10 +41,6 @@ function App() {
     });
   }, [isLoggedIn]);
 
-  // useEffect(() => {
-  //   console.log(isLoggedIn);
-  // }, [isLoggedIn]);
-
   // GET USER PLAYLISTS
   const [userPlaylists, setUserPlaylist] = useState(null);
   useEffect(() => {
@@ -130,9 +126,15 @@ function App() {
   }, [playlistTracks]);
 
   // GET ACTIVE PLAYLIST NAME
-  const [currentPlaylistName, setCurrentPlaylistName] = useState("");
-  const getPlaylistName = (result) => {
-    setCurrentPlaylistName(result);
+  const [currentPlaylist, setCurrentPlaylist] = useState({
+    name: "",
+    id: null,
+  });
+  const getPlaylist = (name, id) => {
+    setCurrentPlaylist({
+      name: name,
+      id: id,
+    });
   };
 
   return (
@@ -155,7 +157,7 @@ function App() {
             isLoggedIn={isLoggedIn}
             userPlaylists={userPlaylists}
             handlePlaylistTracks={handlePlaylistTracks}
-            getPlaylistName={getPlaylistName}
+            getPlaylist={getPlaylist}
           />
           <TracklistContainer
             userPlaylists={userPlaylists}
@@ -163,7 +165,8 @@ function App() {
             playlistTracks={playlistTracks}
             isLoggedIn={isLoggedIn}
             isPlaylist={isPlaylist}
-            currentPlaylistName={currentPlaylistName}
+            currentPlaylistName={currentPlaylist.name}
+            currentPlaylistId={currentPlaylist.id}
           />
         </div>
       </div>

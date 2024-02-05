@@ -8,7 +8,7 @@ const PlaylistItem = ({
   tracks,
   handlePlaylistTracks,
   playlistId,
-  getPlaylistName,
+  getPlaylist,
   isModal,
   handleClose,
   handleAddMusicToPlaylist,
@@ -31,7 +31,7 @@ const PlaylistItem = ({
       if (result.ok) {
         const data = await result.json();
         // console.log(data.items);
-        getPlaylistName(playlistName);
+        getPlaylist(playlistName, playlistId);
         handlePlaylistTracks(data);
       } else {
         throw new Error("Fetch Playlist Tracks Failed");

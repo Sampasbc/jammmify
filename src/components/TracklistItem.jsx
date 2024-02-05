@@ -3,7 +3,7 @@ import styles from "../css/modules/_TracklistItem.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 import TrackDetails from "./TrackDetails";
 import AddToPlaylistModal from "./AddToPlaylistModal";
-import { addSongToPlaylist } from "../spotify";
+import { addSongToPlaylist, removeSongFromPlaylist } from "../spotify";
 
 const TracklistItem = ({
   src,
@@ -12,8 +12,11 @@ const TracklistItem = ({
   album,
   duration,
   isLoggedIn,
+  isPlaylist,
   userPlaylists,
   trackId,
+  currentPlaylistName,
+  currentPlaylistId,
 }) => {
   let PLAYLIST_ID = "";
   let PLAYLIST_NAME = "";
@@ -45,6 +48,19 @@ const TracklistItem = ({
   // CLOSE MODAL EVENT HANDLER
   const handleClose = () => {
     setIsModalOpen(false);
+  };
+
+  // REMOVE FROM PLAYLIST EVENT HANDLER
+  const handleRemoveSong = () => {
+    const accessToken = localStorage.getItem("access_token");
+
+    removeSongFromPlaylist(
+      accessToken,
+      currentPlaylistId,
+      currentPlaylistName,
+      trackId,
+      name
+    );
   };
 
   return (
@@ -88,18 +104,29 @@ const TracklistItem = ({
         </div>
       )}
       {isActive && (
-        <div className={styles.trackdetailsContainer}>
-          <TrackDetails
-            src={src}
-            name={name}
-            artist={artist}
-            album={album}
-            duration={duration}
-            isLoggedIn={isLoggedIn}
-            handleAddBtn={handleAddBtn}
-            handleActive={handleActive}
-          />
-        </div>
+        <>
+          <div className={styles.trackdetailsContainer}>
+            <TrackDetails
+              src={src}
+              name={name}
+              artist={artist}
+              album={album}
+              duration={duration}
+              isLoggedIn={isLoggedIn}
+              handleAddBtn={handleAddBtn}
+              handleRemoveSong={handleRemoveSong}
+              handleActive={handleActive}
+              isPlaylist={isPlaylist}
+            />
+          </div>
+          {isModalOpen && (
+            <AddToPlaylistModal
+              userPlaylists={userPlaylists}
+              handleClose={handleClose}
+              handleAddMusicToPlaylist={handleAddMusicToPlaylist}
+            />
+          )}
+        </>
       )}
     </li>
   );

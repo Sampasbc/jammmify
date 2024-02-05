@@ -7,7 +7,7 @@ const PlaylistContainer = ({
   userPlaylists,
   isLoggedIn,
   handlePlaylistTracks,
-  getPlaylistName,
+  getPlaylist,
 }) => {
   return (
     <div className={styles.playlistContainer}>
@@ -29,7 +29,7 @@ const PlaylistContainer = ({
                   playlistName={list.name}
                   playlistAuthor={list.owner.display_name}
                   tracks={list.tracks}
-                  getPlaylistName={getPlaylistName}
+                  getPlaylist={getPlaylist}
                   handlePlaylistTracks={handlePlaylistTracks}
                   isModal={false}
                 />

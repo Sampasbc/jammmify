@@ -8,6 +8,7 @@ const TracklistContainer = ({
   playlistTracks,
   isPlaylist,
   currentPlaylistName,
+  currentPlaylistId,
   isLoggedIn,
 }) => {
   const searchTracksList = (
@@ -60,6 +61,9 @@ const TracklistContainer = ({
                 duration={item.track.duration_ms}
                 isLoggedIn={isLoggedIn}
                 userPlaylists={userPlaylists}
+                isPlaylist={true}
+                currentPlaylistId={currentPlaylistId}
+                currentPlaylistName={currentPlaylistName}
               />
             ))}
           </>
