@@ -35,8 +35,6 @@ Jammmify is a web application that leverages the Spotify API to allow users to c
 
 The Jammmify playlist app is an evolving project with exciting potential for future enhancements. Some areas for future development include:
 
-- **User Authentication:** Implement user authentication to provide a personalized experience and access to private playlists.
-- **Playlist Management:** Enhance playlist management features, such as editing and deleting playlists directly within the app.
 - **Additional Filters:** Expand the search capabilities with more filtering options, allowing users to discover music more efficiently.
 - **Collaborative Playlists:** Explore the possibility of enabling users to collaborate on creating playlists with friends.
 
