@@ -11,6 +11,7 @@ const TracklistItem = ({
   artist,
   album,
   duration,
+  trackPreview,
   isLoggedIn,
   isPlaylist,
   userPlaylists,
@@ -112,6 +113,7 @@ const TracklistItem = ({
               artist={artist}
               album={album}
               duration={duration}
+              trackPreview={trackPreview}
               isLoggedIn={isLoggedIn}
               handleAddBtn={handleAddBtn}
               handleRemoveSong={handleRemoveSong}

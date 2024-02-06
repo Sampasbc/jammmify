@@ -12,6 +12,7 @@
 }
 
 .imgContainer {
+  position: relative;
   min-width: 25rem;
   max-width: 25rem;
   height: 25rem;
@@ -30,6 +31,29 @@
   height: auto;
   object-fit: cover;
 }
+
+.playBtn {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: hsla(0, 0%, 0%, 0.4);
+  border: none;
+  color: #fafafa;
+  filter: drop-shadow(0rem 0rem 2rem #000000);
+  transition: all 150ms ease;
+  opacity: 0.7;
+}
+
+.playBtn:hover {
+  cursor: pointer;
+}
+
+/* .playBtn:active {
+  opacity: 1;
+} */
 
 .infoContainer {
   justify-self: flex-start;

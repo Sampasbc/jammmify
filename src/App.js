@@ -110,9 +110,9 @@ function App() {
     setSearchTracks(results.tracks.items);
   };
 
-  useEffect(() => {
-    console.log(searchTracks);
-  }, [searchTracks]);
+  // useEffect(() => {
+  //   console.log(searchTracks);
+  // }, [searchTracks]);
 
   // HANDLE OPEN PLAYLIST
   const [playlistTracks, setPlaylistTracks] = useState([]);

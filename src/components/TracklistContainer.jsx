@@ -30,6 +30,7 @@ const TracklistContainer = ({
                 artist={item.artists}
                 album={item.album.name}
                 duration={item.duration_ms}
+                trackPreview={item.preview_url}
                 isLoggedIn={isLoggedIn}
                 userPlaylists={userPlaylists}
               />
@@ -68,6 +69,7 @@ const TracklistContainer = ({
                 artist={item.track.artists}
                 album={item.track.album.name}
                 duration={item.track.duration_ms}
+                trackPreview={item.track.preview_url}
                 isLoggedIn={isLoggedIn}
                 userPlaylists={userPlaylists}
                 isPlaylist={true}

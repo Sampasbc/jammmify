@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../css/modules/_TrackDetails.module.css";
 import { FaPlusCircle } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { FaRegCirclePlay, FaRegCirclePause } from "react-icons/fa6";
 
 const TrackDetails = ({
   src,
@@ -9,12 +10,55 @@ const TrackDetails = ({
   artist,
   album,
   duration,
+  trackPreview,
   handleAddBtn,
   handleRemoveSong,
   handleActive,
   isLoggedIn,
   isPlaylist,
 }) => {
+  const [songPreview, setSongPreview] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    if (trackPreview) {
+      const preview = new Audio(`${trackPreview}`);
+      preview.addEventListener("ended", handlePreviewEnd);
+      setSongPreview(preview);
+      return () => {
+        preview.pause();
+        preview.removeEventListener("ended", handlePreviewEnd);
+      };
+    }
+  }, []);
+
+  // TOGGLE STATUS AND PLAY/PAUSE PREVIEW
+  const handlePlay = () => {
+    if (!songPreview) return;
+    if (!isPlaying) {
+      songPreview.play();
+    } else {
+      songPreview.pause();
+    }
+    setIsPlaying((prev) => !prev);
+  };
+
+  // HANDLE PREVIEW END
+  const handlePreviewEnd = () => {
+    setIsPlaying(false);
+  };
+
+  // HANDLE MOUSE HOVER DISPLAY PLAY BUTTON
+  const handleMouseOver = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseOut = () => {
+    setIsHovered(false);
+  };
+
+  // FORMAT SONG DURATION
   const formatDuration = (duration) => {
     const durationInSeconds = (duration / 1000).toFixed(0);
 
@@ -32,7 +76,21 @@ const TrackDetails = ({
   return (
     <div className={styles.trackDetails}>
       <div className={styles.detailsContainer}>
-        <div className={styles.imgContainer}>
+        <div
+          className={styles.imgContainer}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          {isHovered && (
+            <button className={styles.playBtn} onClick={handlePlay}>
+              {!isPlaying ? (
+                <FaRegCirclePlay size="8rem" />
+              ) : (
+                <FaRegCirclePause size="8rem" />
+              )}
+            </button>
+          )}
+
           <img className={styles.albumImg} src={src} alt="Album Cover" />
         </div>
         <div className={styles.infoContainer}>
