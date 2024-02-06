@@ -8,9 +8,7 @@ const TracklistContainer = ({
   searchTracks,
   playlistTracks,
   isPlaylist,
-  currentPlaylistName,
-  currentPlaylistId,
-  currentPlaylistLink,
+  currentPlaylist,
   isLoggedIn,
 }) => {
   const searchTracksList = (
@@ -45,8 +43,12 @@ const TracklistContainer = ({
   const playlistTracksList = (
     <>
       <div className={styles.titleContainer}>
-        <h3 className={styles.playlistTitle}>{currentPlaylistName}</h3>
-        <a className="btn_secondary" href={currentPlaylistLink} target="_blank">
+        <h3 className={styles.playlistTitle}>{currentPlaylist.name}</h3>
+        <a
+          className="btn_secondary"
+          href={currentPlaylist.link}
+          target="_blank"
+        >
           Listen on Spotify
         </a>
       </div>
@@ -69,8 +71,8 @@ const TracklistContainer = ({
                 isLoggedIn={isLoggedIn}
                 userPlaylists={userPlaylists}
                 isPlaylist={true}
-                currentPlaylistId={currentPlaylistId}
-                currentPlaylistName={currentPlaylistName}
+                currentPlaylistId={currentPlaylist.id}
+                currentPlaylistName={currentPlaylist.name}
               />
             ))}
           </>

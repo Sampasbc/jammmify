@@ -158,18 +158,16 @@ function App() {
           <PlaylistContainer
             isLoggedIn={isLoggedIn}
             userPlaylists={userPlaylists}
-            handlePlaylistTracks={handlePlaylistTracks}
             getPlaylist={getPlaylist}
+            handlePlaylistTracks={handlePlaylistTracks}
           />
           <TracklistContainer
-            userPlaylists={userPlaylists}
             searchTracks={searchTracks}
             playlistTracks={playlistTracks}
             isLoggedIn={isLoggedIn}
             isPlaylist={isPlaylist}
-            currentPlaylistName={currentPlaylist.name}
-            currentPlaylistId={currentPlaylist.id}
-            currentPlaylistLink={currentPlaylist.link}
+            userPlaylists={userPlaylists}
+            currentPlaylist={currentPlaylist}
           />
         </div>
       </div>
