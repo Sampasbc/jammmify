@@ -1,4 +1,5 @@
 import React from "react";
+import "../css/_button.css";
 import styles from "../css/modules/_TracklistContainer.module.css";
 import TracklistItem from "./TracklistItem";
 
@@ -9,6 +10,7 @@ const TracklistContainer = ({
   isPlaylist,
   currentPlaylistName,
   currentPlaylistId,
+  currentPlaylistLink,
   isLoggedIn,
 }) => {
   const searchTracksList = (
@@ -42,7 +44,12 @@ const TracklistContainer = ({
 
   const playlistTracksList = (
     <>
-      <h3 className={styles.playlistTitle}>{currentPlaylistName}</h3>
+      <div className={styles.titleContainer}>
+        <h3 className={styles.playlistTitle}>{currentPlaylistName}</h3>
+        <a className="btn_secondary" href={currentPlaylistLink} target="_blank">
+          Listen on Spotify
+        </a>
+      </div>
       <div className={styles.tableheadWrapper}>
         <h4 className={styles.thTitle}>Title</h4>
         <h4 className={styles.thAlbum}>Album</h4>

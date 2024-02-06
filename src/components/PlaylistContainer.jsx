@@ -29,6 +29,7 @@ const PlaylistContainer = ({
                   playlistName={list.name}
                   playlistAuthor={list.owner.display_name}
                   tracks={list.tracks}
+                  playlistLink={list.external_urls.spotify}
                   getPlaylist={getPlaylist}
                   handlePlaylistTracks={handlePlaylistTracks}
                   isModal={false}

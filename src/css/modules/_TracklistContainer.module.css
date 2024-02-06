@@ -12,6 +12,13 @@
   background: hsl(210, 3%, 15%);
 }
 
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .list {
   display: flex;
   flex-direction: column;

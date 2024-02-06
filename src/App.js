@@ -129,11 +129,13 @@ function App() {
   const [currentPlaylist, setCurrentPlaylist] = useState({
     name: "",
     id: null,
+    link: "",
   });
-  const getPlaylist = (name, id) => {
+  const getPlaylist = (name, id, link) => {
     setCurrentPlaylist({
       name: name,
       id: id,
+      link: link,
     });
   };
 
@@ -167,6 +169,7 @@ function App() {
             isPlaylist={isPlaylist}
             currentPlaylistName={currentPlaylist.name}
             currentPlaylistId={currentPlaylist.id}
+            currentPlaylistLink={currentPlaylist.link}
           />
         </div>
       </div>
