@@ -1,8 +1,8 @@
-# Jammming Playlist App
+# Jammmify Playlist App
 
 ## Purpose
 
-Jammming is a web application that leverages the Spotify API to allow users to create custom playlists on their Spotify accounts. The app enables users to search for songs, view detailed information about each song, and export their personalized playlists seamlessly to their Spotify profiles.
+Jammmify is a web application that leverages the Spotify API to allow users to create custom playlists on their Spotify accounts. The app enables users to search for songs, view detailed information about each song, and export their personalized playlists seamlessly to their Spotify profiles.
 
 ## Technologies Used
 
@@ -33,11 +33,11 @@ Jammming is a web application that leverages the Spotify API to allow users to c
 
 ## Future Work
 
-The Jammming playlist app is an evolving project with exciting potential for future enhancements. Some areas for future development include:
+The Jammmify playlist app is an evolving project with exciting potential for future enhancements. Some areas for future development include:
 
 - **User Authentication:** Implement user authentication to provide a personalized experience and access to private playlists.
 - **Playlist Management:** Enhance playlist management features, such as editing and deleting playlists directly within the app.
 - **Additional Filters:** Expand the search capabilities with more filtering options, allowing users to discover music more efficiently.
 - **Collaborative Playlists:** Explore the possibility of enabling users to collaborate on creating playlists with friends.
 
-We welcome contributions and feedback to make Jammming a robust and user-friendly playlist creation tool.
+We welcome contributions and feedback to make Jammmify a robust and user-friendly playlist creation tool.
