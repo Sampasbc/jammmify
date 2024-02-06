@@ -49,6 +49,7 @@ const TracklistContainer = ({
           className="btn_secondary"
           href={currentPlaylist.link}
           target="_blank"
+          rel="noreferrer"
         >
           Listen on Spotify
         </a>

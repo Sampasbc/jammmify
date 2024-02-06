@@ -31,7 +31,7 @@ const TrackDetails = ({
         preview.removeEventListener("ended", handlePreviewEnd);
       };
     }
-  }, []);
+  }, [trackPreview]);
 
   // TOGGLE STATUS AND PLAY/PAUSE PREVIEW
   const handlePlay = () => {
