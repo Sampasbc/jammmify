@@ -54,7 +54,7 @@ To get started with Jammmify, follow these simple steps:
     ```console
     yarn start
     ```
-6.  Explore Jammmify: Open your browser and navigate to `http://localhost:3000` (or your own server) to explore Jammmify. Enjoy searching for songs, managing playlists, and jamming out to your favorite tunes!
+6.  Explore Jammmify: Open your browser and navigate to `http://localhost:3000` (or wherever you're hosting the application) to explore Jammmify. Enjoy searching for songs, managing playlists, and jamming out to your favorite tunes!
 
 Technologies Used
 -----------------
