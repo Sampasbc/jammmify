@@ -41,7 +41,7 @@ To get started with Jammmify, follow these simple steps:
 4.  Configure Environment Variables:
 
     ```javascript
-    // On spotify.js change URI to you own host
+    // On spotify.js change URI to you own server
     REDIRECT_URI = "http://localhost:3000"
     ```
 5.  Run the Application: Start the development server to run Jammmify locally:
@@ -54,7 +54,7 @@ To get started with Jammmify, follow these simple steps:
     ```console
     yarn start
     ```
-6.  Explore Jammmify: Open your browser and navigate to `http://localhost:3000` to explore Jammmify. Enjoy searching for songs, managing playlists, and jamming out to your favorite tunes!
+6.  Explore Jammmify: Open your browser and navigate to `http://localhost:3000` (or your own server) to explore Jammmify. Enjoy searching for songs, managing playlists, and jamming out to your favorite tunes!
 
 Technologies Used
 -----------------
