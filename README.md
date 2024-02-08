@@ -1,3 +1,5 @@
+ ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black) ![React](https://img.shields.io/badge/-React-blue?logo=react&logoColor=white) ![Spotify API](https://img.shields.io/badge/-Spotify%20API-1ED760?logo=spotify&logoColor=white) ![OAuth 2.0](https://img.shields.io/badge/-OAuth%202.0-2CA5E0?logo=oauth&logoColor=white)
+
 Jammmify 🎵
 ===========
 
